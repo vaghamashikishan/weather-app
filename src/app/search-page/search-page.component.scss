@@ -1,14 +1,3 @@
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-.img {
-  height: 100%;
-  width: 100%;
-}
-.kishan {
-  height: 100vh;
-}
 .searchbar {
   display: flex;
   justify-content: center;
@@ -33,8 +22,4 @@
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
-}
-
-::ng-deep input.mat-input-element {
-  // color: white;
 }

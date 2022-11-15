@@ -1,14 +1,12 @@
 <div class="background-img">
-
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12 col-xs-12 col-12 searchbar">
-        <form class="example-form">
+        <form class="example-form mt-5 p-3">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Enter Location</mat-label>
             <input type="text" placeholder="Enter Location" aria-label="Number" matInput [formControl]="myControl"
-              [matAutocomplete]="auto" [(ngModel)]="searchTerm">
+              [matAutocomplete]="auto" [(ngModel)]="searchTerm" (keyup)="getSuggestions()">
             <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                 {{option}}
@@ -16,9 +14,12 @@
             </mat-autocomplete>
           </mat-form-field>
         </form>
-        <button class="btn btn-success" (click)="getData()">Search</button>
+        <div class="mt-4 pt-2">
+          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon" (click)="getData()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
 </div>

@@ -15,5 +15,11 @@ export class ApiService {
     return this.http.get(`${this.root_url}/locations/v1/cities/search?apikey=${this.API_KEY}&q=${searchTerm}`)
   }
 
+  autoCompleteLocation(searchTerm: string) {
+    console.log('hi');
+    return this.http.get(`${this.root_url}/locations/v1/cities/autocomplete?apikey=${this.API_KEY}&q=${searchTerm}`)
+
+  }
+
 
 }
