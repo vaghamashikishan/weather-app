@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.img {
+  height: 100%;
+  width: 100%;
+}
+.kishan {
+  height: 100vh;
+}
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.background-img {
+  background-image: url("../../assets/andrew-neel-aebPbwAWjDs-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+::ng-deep input.mat-input-element {
+  // color: white;
+}

@@ -1,0 +1,24 @@
+<div class="background-img">
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12 col-xs-12 col-12 searchbar">
+        <form class="example-form">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Location</mat-label>
+            <input type="text" placeholder="Enter Location" aria-label="Number" matInput [formControl]="myControl"
+              [matAutocomplete]="auto" [(ngModel)]="searchTerm">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+        <button class="btn btn-success" (click)="getData()">Search</button>
+      </div>
+    </div>
+  </div>
+
+</div>
