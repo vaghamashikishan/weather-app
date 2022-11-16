@@ -8,7 +8,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  private API_KEY = 'dWWMnAn8sBg7CF3GvfwPGkfgIK0rjEon';
+  private API_KEY = 'iU3jZreoLRGnedbJdJAzOrI93IFgvbEx';
   private root_url = 'http://dataservice.accuweather.com';
 
   getDataBySearch(searchTerm: string) {

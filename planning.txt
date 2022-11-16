@@ -1,0 +1,3 @@
+16/11 to 30/11 --> Complete weather project & Complete angular advance concept with documentation
+01/12 to 20/12 --> Complete NodeJS & MongoDB with documentation & with its projects along with angular projects
+21/12 to 31/12 --> Make a Mega MEAN project

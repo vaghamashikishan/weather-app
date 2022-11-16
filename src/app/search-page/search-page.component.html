@@ -5,13 +5,8 @@
         <form class="example-form mt-5 p-3">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Enter Location</mat-label>
-            <input type="text" placeholder="Enter Location" aria-label="Number" matInput [formControl]="myControl"
-              [matAutocomplete]="auto" [(ngModel)]="searchTerm" (keyup)="getSuggestions()">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
-              </mat-option>
-            </mat-autocomplete>
+            <input type="text" aria-label="Number" matInput [(ngModel)]="searchTerm" name="location" appAutoComplete
+              [searchTerm]="searchTerm">
           </mat-form-field>
         </form>
         <div class="mt-4 pt-2">
