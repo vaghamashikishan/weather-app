@@ -16,20 +16,16 @@ export class SearchPageComponent implements OnInit {
   ngOnInit() { }
 
   searchTerm: string = '';
+  selectedLocation: any;
 
   getData() {
-    // this._apiService.getDataBySearch(this.searchTerm).subscribe(res => console.log(res));
+    this._apiService.getDataByLocationName(this.selectedLocation.LocalizedName).subscribe(res => console.log(res));
   }
 
-  getSuggestions() {
+  getFinalSearch(e: any) {
+    this.selectedLocation = e;
+    this.searchTerm = e.LocalizedName;
+    console.log(e);
     console.log(this.searchTerm);
-    // this._apiService.autoCompleteLocation(this.searchTerm).pipe(
-    //   map((res: any) => {
-    //     let cityArray = [];
-    //     for (let i = 0; i < res.length; i++) {
-    //       cityArray.push(res[i]);
-    //     }
-    //   })
-    // ).subscribe(res => console.log(res));
   }
 }
