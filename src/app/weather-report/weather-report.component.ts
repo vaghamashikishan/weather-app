@@ -13,6 +13,8 @@ export class WeatherReportComponent implements OnInit, AfterViewInit {
   location: any;
   ngOnInit(): void {
     this.location = this.locationFromParent;
+    console.log(this.location);
+
   }
   ngAfterViewInit(): void {
 

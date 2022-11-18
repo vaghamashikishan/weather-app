@@ -14,11 +14,11 @@ export class AutoCompleteDirective implements OnDestroy {
   locationData: any[] = [];
   Subscription1!: Subscription;
   @HostListener('keyup') kishan() {
-    // if (this.searchTerm) {
-    //   this.getAutoSuggestions();
-    // } else {
-    //   const rootEl = this._renderer.selectRootElement('.drop-down', false);
-    // }
+    if (this.searchTerm) {
+      this.getAutoSuggestions();
+    } else {
+      const rootEl = this._renderer.selectRootElement('.drop-down', false);
+    }
   }
 
   getAutoSuggestions() {

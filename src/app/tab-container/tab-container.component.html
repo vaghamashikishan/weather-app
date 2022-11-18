@@ -13,7 +13,7 @@
   <mat-tab label="Home">
     <app-search-page (locationForNewTab)="getSearchedData($event)"></app-search-page>
   </mat-tab>
-  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.LocalizedName">
     <app-weather-report [locationFromParent]="tab"></app-weather-report>
     <button mat-raised-button class="example-delete-tab-button" (click)="removeTab(index)">
       Delete Tab
