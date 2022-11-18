@@ -15,6 +15,10 @@ export class ApiService {
     return this.http.get(`${this.root_url}/locations/v1/cities/search?apikey=${this.API_KEY}&q=${searchTerm}`)
   }
 
+  getDataByLocationKey(locationKey: number) {
+    return this.http.get(`${this.root_url}/locations/v1/${locationKey}?apikey=${this.API_KEY}`)
+  }
+
   autoCompleteLocation(searchTerm: string) {
     // return this.http.get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=iU3jZreoLRGnedbJdJAzOrI93IFgvbEx&q=d`)
     return this.http.get(`${this.root_url}/locations/v1/cities/autocomplete?apikey=${this.API_KEY}&q=${searchTerm}`)

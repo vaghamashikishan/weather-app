@@ -1,8 +1,4 @@
-import { AfterContentChecked, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ApiService } from '../_services/api.service';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search-page',
@@ -11,21 +7,28 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor(private _apiService: ApiService) { }
+  constructor() { }
+  @Output() locationForNewTab = new EventEmitter<any>();
 
   ngOnInit() { }
 
   searchTerm: string = '';
   selectedLocation: any;
 
-  getData() {
-    this._apiService.getDataByLocationName(this.selectedLocation.LocalizedName).subscribe(res => console.log(res));
-  }
-
-  getFinalSearch(e: any) {
+  getLocationFromDirective(e: any) {
     this.selectedLocation = e;
     this.searchTerm = e.LocalizedName;
-    console.log(e);
-    console.log(this.searchTerm);
   }
+
+  sendDataToWeatherReport() {
+    this.locationForNewTab.emit(this.selectedLocation ? this.selectedLocation : this.searchTerm);
+    this.searchTerm = '';
+    // if (this.selectedLocation) {
+    //   this._apiService.getDataByLocationKey(this.selectedLocation.Key).subscribe(res => console.log(res));
+    //   this.selectedLocation = null;
+    // } else {
+    //   this._apiService.getDataByLocationName(this.selectedLocation.LocalizedName).subscribe(res => console.log(res));
+    // }
+  }
+
 }

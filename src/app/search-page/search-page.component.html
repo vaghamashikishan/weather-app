@@ -5,13 +5,15 @@
         <form class="example-form mt-5 p-3">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Enter Location</mat-label>
+            <!-- Directive has been used in input tag -->
             <input type="text" aria-label="Number" matInput [(ngModel)]="searchTerm" name="location" appAutoComplete
-              [searchTerm]="searchTerm" (finalSearchOutput)="getFinalSearch($event)" autocomplete="off">
+              [searchTerm]="searchTerm" (finalSearchOutput)="getLocationFromDirective($event)" autocomplete="off">
           </mat-form-field>
           <div class="drop-down"></div>
         </form>
         <div class="mt-4 pt-2 kishan">
-          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon" (click)="getData()">
+          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
+            (click)="sendDataToWeatherReport()">
             <mat-icon>search</mat-icon>
           </button>
         </div>

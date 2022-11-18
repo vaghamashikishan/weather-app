@@ -14,13 +14,19 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AutoCompleteDirective } from './_directives/auto-complete.directive';
+import { TabContainerComponent } from './tab-container/tab-container.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { WeatherReportComponent } from './weather-report/weather-report.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPageComponent,
-    AutoCompleteDirective
+    AutoCompleteDirective,
+    TabContainerComponent,
+    WeatherReportComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,9 @@ import { AutoCompleteDirective } from './_directives/auto-complete.directive';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,11 +14,11 @@ export class AutoCompleteDirective implements OnDestroy {
   locationData: any[] = [];
   Subscription1!: Subscription;
   @HostListener('keyup') kishan() {
-    if (this.searchTerm) {
-      this.getAutoSuggestions();
-    } else {
-      const rootEl = this._renderer.selectRootElement('.drop-down', false);
-    }
+    // if (this.searchTerm) {
+    //   this.getAutoSuggestions();
+    // } else {
+    //   const rootEl = this._renderer.selectRootElement('.drop-down', false);
+    // }
   }
 
   getAutoSuggestions() {
@@ -33,7 +33,7 @@ export class AutoCompleteDirective implements OnDestroy {
     this.locationData.forEach((city: any) => {
       let option = this._renderer.createElement('div');
       this._renderer.addClass(option, 'option');
-      let optionText = this._renderer.createText(city.LocalizedName);
+      let optionText = this._renderer.createText(city.LocalizedName + ', ' + city.AdministrativeArea.LocalizedName);
       this._renderer.listen(option, 'click', () => {
         this.finalSearchOutput.emit(city);
         this._renderer.selectRootElement('.drop-down', false);
