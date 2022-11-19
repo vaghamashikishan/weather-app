@@ -6,8 +6,8 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Enter Location</mat-label>
             <!-- Directive has been used in input tag -->
-            <input type="text" aria-label="Number" matInput [(ngModel)]="searchTerm" name="location" appAutoComplete
-              [searchTerm]="searchTerm" (finalSearchOutput)="getLocationFromDirective($event)" autocomplete="off">
+            <input type="text" aria-label="Text" matInput [(ngModel)]="searchTerm" name="location" appAutoComplete
+              [searchTerm]="searchTerm" (finalSearchedLocation)="getLocationFromDirective($event)" autocomplete="off">
           </mat-form-field>
           <div class="drop-down"></div>
         </form>

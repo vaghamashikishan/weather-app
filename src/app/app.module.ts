@@ -18,6 +18,7 @@ import { TabContainerComponent } from './tab-container/tab-container.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { WeatherReportComponent } from './weather-report/weather-report.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { WeatherReportComponent } from './weather-report/weather-report.componen
     MatButtonModule,
     MatIconModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,20 +1,9 @@
-<!-- <mat-form-field appearance="fill">
-  <mat-label>Selected tab index</mat-label>
-  <input matInput type="number" [formControl]="selected">
-</mat-form-field>
-
-<div>
-  <button mat-raised-button class="example-add-tab-button" (click)="addTab(selectAfterAdding.checked)">
-    Add new tab
-  </button>
-  <mat-checkbox #selectAfterAdding> Select tab after adding </mat-checkbox>
-</div> -->
 <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
   <mat-tab label="Home">
-    <app-search-page (locationForNewTab)="getSearchedData($event)"></app-search-page>
+    <app-search-page (locationFromSearchToTab)="getLocationDataFromSearchPage($event)"></app-search-page>
   </mat-tab>
-  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.LocalizedName">
-    <app-weather-report [locationFromParent]="tab"></app-weather-report>
+  <mat-tab *ngFor="let location of locationTabs; let index = index" [label]="location.LocalizedName">
+    <app-weather-report [locationFromParent]="location"></app-weather-report>
     <button mat-raised-button class="example-delete-tab-button" (click)="removeTab(index)">
       Delete Tab
     </button>

@@ -8,27 +8,24 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchPageComponent implements OnInit {
 
   constructor() { }
-  @Output() locationForNewTab = new EventEmitter<any>();
+  @Output() locationFromSearchToTab = new EventEmitter<any>();
 
   ngOnInit() { }
 
   searchTerm: string = '';
   selectedLocation: any;
 
-  getLocationFromDirective(e: any) {
-    this.selectedLocation = e;
-    this.searchTerm = e.LocalizedName;
+  getLocationFromDirective(searchedLocation: any) {
+    this.selectedLocation = searchedLocation;
+    this.searchTerm = searchedLocation.LocalizedName + ', ' + searchedLocation.AdministrativeArea.LocalizedName;
   }
 
   sendDataToWeatherReport() {
-    this.locationForNewTab.emit(this.selectedLocation ? this.selectedLocation : this.searchTerm);
+    if (!this.selectedLocation) {
+      alert('Please select location from list');
+      return;
+    }
+    this.locationFromSearchToTab.emit(this.selectedLocation);
     this.searchTerm = '';
-    // if (this.selectedLocation) {
-    //   this._apiService.getDataByLocationKey(this.selectedLocation.Key).subscribe(res => console.log(res));
-    //   this.selectedLocation = null;
-    // } else {
-    //   this._apiService.getDataByLocationName(this.selectedLocation.LocalizedName).subscribe(res => console.log(res));
-    // }
   }
-
 }

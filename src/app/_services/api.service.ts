@@ -8,20 +8,22 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  private API_KEY = 'iU3jZreoLRGnedbJdJAzOrI93IFgvbEx';
+  private API_KEY = 'A0xx2gzXRF71G4zhgfcwh1tfUkqmczgp';
   private root_url = 'http://dataservice.accuweather.com';
 
-  getDataByLocationName(searchTerm: string) {
-    return this.http.get(`${this.root_url}/locations/v1/cities/search?apikey=${this.API_KEY}&q=${searchTerm}`)
-  }
-
-  getDataByLocationKey(locationKey: number) {
-    return this.http.get(`${this.root_url}/locations/v1/${locationKey}?apikey=${this.API_KEY}`)
-  }
-
-  autoCompleteLocation(searchTerm: string) {
-    // return this.http.get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=iU3jZreoLRGnedbJdJAzOrI93IFgvbEx&q=d`)
+  getAutocompleteLocationList(searchTerm: string) {
     return this.http.get(`${this.root_url}/locations/v1/cities/autocomplete?apikey=${this.API_KEY}&q=${searchTerm}`)
   }
 
+  getLocationDataByLocationKey(locationKey: number) {
+    return this.http.get(`${this.root_url}/locations/v1/${locationKey}?apikey=${this.API_KEY}`)
+  }
+
+  getWeatherConditionDataByLocationKey(locationKey: number) {
+    return this.http.get(`${this.root_url}/currentconditions/v1/${locationKey}?apikey=${this.API_KEY}`)
+  }
+
+  // getDataByLocationName(searchTerm: string) {
+  //   return this.http.get(`${this.root_url}/locations/v1/cities/search?apikey=${this.API_KEY}&q=${searchTerm}`)
+  // }
 }
